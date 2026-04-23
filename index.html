@@ -1,71 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>tes publish web</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Login Modern</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
 </head>
-<style>
-  .tombol-biru {
-  background-color: #3b82f6; /* warna biru */
-  color: white;
-  border: none;
-  padding: 12px 30px;
-  font-size: 16px;
+<body class="gradient-bg min-h-screen flex items-center justify-center p-4">
 
-  border-radius: 30px; /* bikin ujungnya bulat */
-  
-  box-shadow: 0px 6px 10px rgba(0,0,0,0.2); /* bayangan */
+    <div class="w-full max-w-md">
+        <!-- Kartu Login -->
+        <div class="glass-effect rounded-2xl shadow-2xl p-8 md:p-10">
+            
+            <!-- Header -->
+            <div class="text-center mb-10">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full mb-4">
+                    <i class="fa-solid fa-lock text-2xl"></i>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-800">Selamat Datang</h1>
+                <p class="text-gray-500 mt-2">Silakan masuk ke akun Anda</p>
+            </div>
 
-  cursor: pointer;
+            <!-- Form -->
+            <form id="loginForm" class="space-y-6">
+                <!-- Input Email -->
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Alamat Email</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+                            <i class="fa-regular fa-envelope"></i>
+                        </span>
+                        <input type="email" id="email" required
+                            class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200 outline-none"
+                            placeholder="nama@email.com">
+                    </div>
+                </div>
 
-  transition: all 0.2s ease; /* animasi halus */
-}
+                <!-- Input Password -->
+                <div>
+                    <div class="flex justify-between mb-1">
+                        <label for="password" class="block text-sm font-medium text-gray-700">Kata Sandi</label>
+                        <a href="#" class="text-sm text-indigo-600 hover:text-indigo-500 font-medium">Lupa sandi?</a>
+                    </div>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+                            <i class="fa-solid fa-key"></i>
+                        </span>
+                        <input type="password" id="password" required
+                            class="block w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200 outline-none"
+                            placeholder="••••••••">
+                        <button type="button" onclick="togglePassword()" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600">
+                            <i id="eyeIcon" class="fa-regular fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
 
-/* efek saat mouse di atas tombol */
-.tombol-biru:hover {
-  background-color: #2563eb;
-  transform: translateY(-2px);
-}
+                <!-- Remember Me -->
+                <div class="flex items-center">
+                    <input type="checkbox" id="remember" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                    <label for="remember" class="ml-2 block text-sm text-gray-700">Ingat saya</label>
+                </div>
 
-/* efek saat tombol ditekan */
-.tombol-biru:active {
-  transform: translateY(2px);
-  box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
-}
-body { 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-</style>
+                <!-- Tombol Submit -->
+                <button type="submit" 
+                    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg shadow-lg transform active:scale-95 transition duration-200 flex items-center justify-center">
+                    Masuk Sekarang
+                </button>
+            </form>
 
-<style>
-  .tombol-merah {
-    background-color: #FF0000 /* warna merah standar */
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    font-size: 16px;
+            <!-- Social Login -->
+            <div class="mt-8">
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-200"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-2 bg-white text-gray-500">Atau masuk dengan</span>
+                    </div>
+                </div>
 
-    border-radius: 30px; /* bikin ujungnya bulat */
-  
-    box-shadow: 0px 6px 10px rgba(0,0,0,0.2); /* bayangan */
+                <div class="mt-6 grid grid-cols-2 gap-4">
+                    <button class="flex items-center justify-center py-2.5 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-200">
+                        <img src="https://www.svgrepo.com/show/475656/google.svg" class="h-5 w-5 mr-2" alt="Google">
+                        <span class="text-sm font-medium text-gray-700">Google</span>
+                    </button>
+                    <button class="flex items-center justify-center py-2.5 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-200">
+                        <i class="fa-brands fa-github text-lg mr-2"></i>
+                        <span class="text-sm font-medium text-gray-700">GitHub</span>
+                    </button>
+                </div>
+            </div>
 
-    cursor: pointer;
+            <!-- Register Link -->
+            <p class="text-center mt-10 text-sm text-gray-600">
+                Belum punya akun? 
+                <a href="#" class="font-bold text-indigo-600 hover:text-indigo-500">Daftar gratis</a>
+            </p>
+        </div>
 
-    transition: all 0.2s ease; /* animasi halus */
-}
+        <!-- Footer Info -->
+        <p class="text-center text-white/70 text-xs mt-8">
+            &copy; 2024 Nama Perusahaan Anda. Hak Cipta Dilindungi.
+        </p>
+    </div>
 
-    
+    <!-- Alert Custom (Hidden by default) -->
+    <div id="customAlert" class="fixed top-5 right-5 transform translate-x-full transition-transform duration-300 ease-in-out bg-white border-l-4 border-green-500 shadow-xl p-4 rounded-md hidden">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <i class="fa-solid fa-circle-check text-green-500"></i>
+            </div>
+            <div class="ml-3">
+                <p id="alertMessage" class="text-sm font-medium text-gray-800"></p>
+            </div>
+        </div>
+    </div>
 
-    
-</style>
-<body style="text-align: center;">
-    <button class="tombol-biru">klik disini</button>
-</body>
-  <button class="tombol-merah">klik</button>
+    <script>
+        // Fungsi Toggle Lihat Password
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eyeIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+
+        // Penanganan Form Login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            
+            // Tampilkan Alert Sederhana
+            showAlert(`Mencoba masuk sebagai: ${email}`);
+        });
+
+        function showAlert(message) {
+            const alert = document.getElementById('customAlert');
+            const alertMsg = document.getElementById('alertMessage');
+            
+            alertMsg.innerText = message;
+            alert.classList.remove('hidden');
+            setTimeout(() => {
+                alert.classList.remove('translate-x-full');
+            }, 10);
+
+            setTimeout(() => {
+                alert.classList.add('translate-x-full');
+                setTimeout(() => alert.classList.add('hidden'), 300);
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
